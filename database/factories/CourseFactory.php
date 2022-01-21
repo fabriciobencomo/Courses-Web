@@ -20,7 +20,7 @@ class CourseFactory extends Factory
             'description' => $this->faker->text(400),
 
             'user_id' => rand(1,5),
-            'category_id' => rand(1,5)
+            'category_id' => rand(1,3)
         ];
     }
 }
