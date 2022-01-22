@@ -8,12 +8,32 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-    <header class="shadow-sm">
-        <div class="bg-teal-400 py-1">
-            <nav class="bg-teal-300 py-2">
+    <header class="lg:mx-10">
+        <div class="my-5">
+            <nav class="py-2 flex justify-between border-gray-500 border-b-2">
                 <a href="{{route('home')}}">
-                    <img src="{{asset('images/isotype-courses.png')}}" class="h-8 mx-auto" alt="">
+                    <img src="{{asset('images/isotype-courses.png')}}" class="h-12" alt="logo">
                 </a>
+                <li class="flex my-auto gap-6 text-sm text-gray-500">
+                    <ul class="p-2">Pricing</ul>
+                    <ul class="p-2">Solutions</ul>
+                    <ul class="p-2">Docs</ul>
+                    <ul class="p-2">More</ul>
+                </li>
+                <div class="flex my-auto gap-2">
+                    @auth
+                        <a href="{{ url('dashboard') }}" class="text-sm text-gray-500 p-2">
+                            Dashboard
+                        </a>
+                    @else
+                        <a href="{{ url('login') }}" class="text-sm text-gray-500 p-2">
+                            Login
+                        </a>
+                        <a href="{{ url('register') }}" class="btn bg-teal-500 text-white p-2 text-sm rounded">
+                            Register
+                        </a>
+                    @endif
+                </div>
             </nav>
         </div>
     </header>
@@ -23,18 +43,7 @@
         </div>
     </main>
     <footer class="py-4 text-center">
-        @auth
-            <a href="{{ url('dashboard') }}" class="text-sm text-gray-700 underline">
-                Dashboard
-            </a>
-        @else
-            <a href="{{ url('login') }}" class="text-sm text-gray-700 underline">
-                Login
-            </a>
-            <a href="{{ url('register') }}" class="ml-4 text-sm text-gray-700 underline">
-                Register
-            </a>
-        @endif
+
     </footer>
 </body>
 </html>

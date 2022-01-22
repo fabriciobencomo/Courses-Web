@@ -58,4 +58,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function courses(){
+        return $this->hasMany(Course::class);
+    }
+
+    public function getAvatarAttribute()
+    {
+        $email = md5($this->email);
+        return "https:////i.pravatar.cc/150?u=$email";
+    }
 }
