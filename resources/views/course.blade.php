@@ -2,10 +2,23 @@
 
 @section('content')
     <div class="grid grid-cols-3 gap-4">
-        <div class="bg-white shadow-lg rounded-lg px-4 py-6 col-span-1">
+        <div class="bg-white shadow-lg rounded-lg col-span-1">
             <ul class="flex flex-col">
-                <li class="font-medium text-sm text-">Contenido</li>
+                <li class="text-lg mb-2 text-gray-800 font-bold text-center shadow-md px-2 py-3">Content</li>
+                @foreach($course->posts as $post)
+                <li class="px-3 mb-4 mt-2 border-b-2 border-gray-800 flex">
+                    <span class="font-bold">{{$i}}. </span>
+                    {{$post->name}}
+                    @if($post->free)
+                        <span class="text-teal-300 font-bold px-3">Free</span>
+                    @endif
+                    @php
+                        $i++
+                    @endphp
+                </li>
+                @endforeach
             </ul>
+
         </div>
         <div class="col-span-2">
             <img src="{{$course->image}}" alt="Course Image">

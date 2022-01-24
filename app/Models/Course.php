@@ -9,9 +9,16 @@ class Course extends Model
 {
     use HasFactory;
 
-    public function User(){
+    public function User()
+    {
         return $this->belongsTo(User::class);
     }
+
+    public function Posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     public function getExcerptAttribute()
     {
         return substr($this->description, 0 , 80) . "...";
