@@ -16,7 +16,7 @@ class CourseFactory extends Factory
         return [
             'name' => $this->faker->sentence,
             'slug' => $this->faker->slug,
-            'image' => $this->faker->imageUrl(640, 480),
+            'image' => $this->faker->imageUrl(1280, 720),
             'description' => $this->faker->text(400),
 
             'user_id' => rand(1,5),

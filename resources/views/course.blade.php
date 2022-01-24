@@ -32,5 +32,11 @@
                 </div>
             </div>
         </div>
+        <div class="col-span-3">
+            <h1 class="text-2xl text-gray-800 font-bold text-center border-t-2 mt-4 py-6 border-gray-500">Similar Courses</h1>
+        </div>
+        @foreach($course->similar() as $course)
+            <x-course-card :course="$course" />
+        @endforeach
     </div>
 @endsection
